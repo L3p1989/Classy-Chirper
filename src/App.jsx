@@ -1,5 +1,7 @@
 import React from "react";
 
+import ChirpCard from "./components/ChirpCard";
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -62,6 +64,9 @@ class App extends React.Component {
                     </div>
                     <button className="btn btn-primary" onClick={e => this.handleSubmit(e)}>Chirp it</button>
                 </form>
+                {this.state.chirps.map(chirp => (
+                    <ChirpCard key={`chirp-card-${chirp.id}`} {...chirp} />
+                ))}
             </div>
         );
     }
